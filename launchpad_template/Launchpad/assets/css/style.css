@@ -1081,6 +1081,13 @@ aside {
   cursor: pointer;
   z-index: 1;
 }
+.privacy {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 8px 10px;
+  text-align: center;
+}
 
 .btn:hover, .btn:focus, .btn:active {
   color: var(--white-color);
