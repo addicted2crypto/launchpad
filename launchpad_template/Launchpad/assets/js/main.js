@@ -99,6 +99,7 @@
     $(document).ready(function() {
         if (position > 0) {
             navbar.hide();
+            
         }
     })
 
@@ -122,7 +123,8 @@
 
             } else {
 
-                if (position < 76) {
+                if (position < 176) {
+                   
 
                     navbar.slideDown('fast').removeClass('navbar-sticky');
 
