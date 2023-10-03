@@ -96,12 +96,12 @@
     var position = $(window).scrollTop();
     var navbar   = $('.navbar');
 
-    $(document).ready(function() {
-        if (position > 0) {
-            navbar.hide();
-            
-        }
-    })
+    // $(document).ready(function() {
+        // if (position > 0) {
+            // navbar.hide();
+            // 
+        // }
+    // })
 
     $(window).scroll(function () {
 
@@ -112,33 +112,33 @@
 
             if (scroll > position) {
 
-                if (window.screen.width >= 767) {
+                // if (window.screen.width >= 767) {
 
-                    navbar.fadeOut('fast');
+                    // navbar.fadeOut('fast');
 
                 } else {
 
                     navbar.addClass('navbar-sticky');
                 }
 
-            } else {
+            // } else {
 
-                if (position < 176) {
-                   
+                // if (position < 176) {
+                //    
 
-                    navbar.slideDown('fast').removeClass('navbar-sticky');
+                    // navbar.slideDown('fast').removeClass('navbar-sticky');
 
                 } else {
 
                     navbar.slideDown('fast').addClass('navbar-sticky');
                 }
 
-            }
+            // }
 
             position = scroll;
 
-        }
-    })
+        })
+    // })
 
     $('.nav-link').each(function() {
         let href = $(this).attr('href');
