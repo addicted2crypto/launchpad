@@ -1406,7 +1406,7 @@ header .navbar-expand .icons i {
 }
 
 header .navbar-sticky {
-  /* addicteds change => */
+  /* addicteds change =>  will add permanant colors*/
   background-color: var(--header-gradient);
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
           animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
