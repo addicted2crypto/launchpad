@@ -13,22 +13,22 @@
     <!-- Time to implement the web3 connect -->
      <!-- wil be using metamask injection through main.js -->
     <!-- <script type="module" src="main.js"></script> -->
-    <script>
-        if (typeof window.ethereum !== "undefined"){
-        ethereum.request({method: "connect_wallet"})
-        }
-    // </script>
+    <!-- <script> -->
+        <!-- // if (typeof window.ethereum !== "undefined"){ -->
+        <!-- // ethereum.request({method: "connect_wallet"}) -->
+        <!-- // } -->
+    <!-- // </script> -->
     <!-- <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script> -
     
     
     
 
-    <!-- Favicon  -->
+    Favicon 
     <link rel="icon" href="degenlogo.png">
 
-    <!-- ***** All CSS Files ***** -->
+    ***** All CSS Files *****
 
-    <!-- Style css -->
+    <-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -215,25 +215,28 @@
                             <!-- <script> -->
                                 
                                 <a href="wallet-connect.html" class="btn ml-lg-auto btn-bordered-white"><i class="icon-wallet mr-md-2"></i>Wallet Connect</a>
-                                <script>
-                                   
-                                   
-                                   
-                                </script>
                                 
-                                // <!-- document.getElementById('wallet-connect').addEventListener('click', event => { -->
-                            // 
-                            // <!-- ethereum.request({method: 'eth_requestAccounts'}) -->
-                        // <!-- }); -->
-                        // <!-- </script> -->
-                        // </li>
+                                    
+        
+                              <script>
+                                async function connectWallet() {
+                                    try {
+                                        // Requesting access to the user's accounts
+                                        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+                                        // Accounts now exposed
+                                        console.log(accounts);
+
+                                        // Redirect to the logged-in page or perform other actions
+                                        window.location.href = "index.html";
+                                    } catch (error) {
+                                        console.error(error);
+                                    }
+                                }
+                         </script>
+                       </li>
 
                     </ul>
-                    <!-- addicteds privacy button to scroll down -->
-                    <!-- <div id="scroll-to-bottom" class="scroll-to-top"> -->
-                        
-                        <!-- <a href="#header" class="smooth-anchor">Down -->
-                            <!-- <i class="fa-solid fa-arrow-down"></i> -->
                 </div>
             </nav>
         </header>
