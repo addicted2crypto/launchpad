@@ -36,20 +36,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (function ($) {
     'use strict';
 
