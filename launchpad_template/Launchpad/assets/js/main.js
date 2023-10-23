@@ -31,11 +31,6 @@
 
 
 
-
-
-
-
-
 (function ($) {
     'use strict';
 
