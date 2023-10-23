@@ -4,7 +4,7 @@ function connectWallet() {
         ethereum.request({ method: 'eth_requestAccounts' })
             .then((accounts) => {
                 console.log(accounts);
-                // Optionally, you can perform additional actions after connecting
+                // will show all pools from wallet db
             })
             .catch((error) => {
                 console.error(error);
