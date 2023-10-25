@@ -33,7 +33,7 @@
  
         ...
         <!-- script tag for metamask sdk? -->
-        <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
+        
         
        
        
@@ -215,59 +215,22 @@
                     </ul>
 
                     <!-- Navbar Action Button -->
-                    <!-- //navbar wallet connect addicted look at  -->
+                    
                     <ul class="navbar-nav action">
                         <li class="nav-item ml-2">
                            
                                 
                                 <a href="walletConnected.html" class="btn ml-lg-auto btn-bordered-white"id='walletConnectButton'><i class="icon-wallet mr-md-2"></i>Wallet Connect</a>
                         
-                                    <!-- <script src="walletConnected.js"></script> -->
+                                    <script src="walletConnected.js"></script>
 
-<!-- <button id="walletConnectButton" class="btn ml-lg-auto btn-bordered-white"> -->
-   <!-- <i class="icon-wallet mr-md-2"></i>Connect Wallet -->
-<!-- </button> -->
-<!-- may need to add another event listener for no extenstion found -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const walletConnectButton = document.getElementById('walletConnectButton');
 
-        if (walletConnectButton) {
-            walletConnectButton.addEventListener('click', connectWallet);
-        }
-
-        function connectWallet() {
-            if (typeof ethereum !== 'undefined') {
-                ethereum.request({ method: 'eth_requestAccounts' })
-                    .then((accounts) => {
-                        console.log(accounts);
-                        window.location.href = "loggedin.html";
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
-            } else {
-                console.error("Ethereum object not found. Make sure MetaMask is installed. Download the extension and try again!");
-            }
-        }
-    });
-</script> --> -->
+  
 
 </body>
 </html>
 
-                             -->
-                            
-                                  
-                                  
-                                  
-                                
-                                  
-                                  
-                                  
-                                  
-                    
-                                
+          
                                    
                             </li>
 
