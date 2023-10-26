@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <button id="walletConnectButton">Connect </button>
+    <button id="walletConnectButton">Connect</button>
+    <script>
+
+        const MMSDK = new MetaMaskSDK.MetaMaskSDK()
+        // Because init process of the MetaMaskSDK is async.
+        setTimeout(() => {
+            const ethereum = window.ethereum() // You can also access via window.ethereum
+    
+            ethereum.request({ method: 'eth_requestAccounts' })
+        }, 0)
+    
+    </script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         const walletConnectButton = document.getElementById('walletConnectButton');
@@ -40,10 +51,10 @@
 
     
         <h1>Welcome to the Logged In Page!</h1>
-        <p>Your wallet is connected. Time to populate all your info</p>
+        <p>Your wallet now connected. Time to populate all your wallets holdings.</p>
     
     </div>
 
-    <script src="walletConnected.js"></script> <!-- Include your JavaScript file for additional logic -->
+    <script src="/launchpad_template/Launchpad/walletConnected.js"></script> <!-- Include your JavaScript file for additional logic -->
 </body>
 </html>
