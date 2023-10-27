@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+
+ 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logged In</title>
+    <title>Logged In</title> -->
     <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/style.css"> -->
+
 </head>
-<body>
+<button id="walletConnectButton">Connect</button>
+<script>
+    window.walletConnectButton = null
+    const walletConnectButton = document.getElementById('walletConnectButton')
+    const userWallet = document.getElementById('userWallet')
+
+    function toggleButton() {
+      if (!window.ethereum) {
+        walletConnectButton.innerText = 'MetaMask is not installed'
+        walletConnectButton.classList.remove('bg-purple-500', 'text-white')
+        walletConnectButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+        return false
+      }
+
+      loginButton.addEventListener('click', loginWithMetaMask)
+    }
+
+    async function loginWithMetaMask() {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        .catch((e) => {
+          console.error(e.message)
+          return
+        })
+      if (!accounts) { return }
+
+      window.walletConnectButton = accounts[0]
+      walletConnectButton.innerText = window.walletConnectButton
+      loginButton.innerText = 'Sign out of MetaMask'
+
+      loginButton.removeEventListener('click', loginWithMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', signOutOfMetaMask)
+      }, 200)
+    }
+
+    function signOutOfMetaMask() {
+      window.walletConnectButton = null
+      walletConnectButton.innerText = ''
+      loginButton.innerText = 'Sign in with MetaMask'
+
+      loginButton.removeEventListener('click', signOutOfMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', loginWithMetaMask)
+      }, 100)
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      toggleButton()
+    });
+  </script>
+</body>
+
+
+ -->
+
+
+
+
+<!-- <body>
     <button id="walletConnectButton">Connect</button>
     <script>
 
@@ -65,5 +127,5 @@
     </div>
 
     <script src="/launchpad_template/Launchpad/walletConnected.js"></script> <!-- Include your JavaScript file for additional logic -->
-</body>
-</html>
+<!-- </body>
+</html> -->
