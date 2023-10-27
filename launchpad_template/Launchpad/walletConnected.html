@@ -13,15 +13,15 @@
 
         const MMSDK = new MetaMaskSDK.MetaMaskSDK()
         // Because init process of the MetaMaskSDK is async.
-        setTimeout(() => {
-            const ethereum = window.ethereum() // You can also access via window.ethereum
+        // setTimeout(() => {
+        //     const ethereum = window.ethereum() // You can also access via window.ethereum
     
-            ethereum.request({ method: 'eth_requestAccounts' })
-        }, 0)
+        //     ethereum.request({ method: 'eth_requestAccounts' })
+        // }, 0)
     
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    // document.addEventListener('DOMContentLoaded', function () {
         const walletConnectButton = document.getElementById('walletConnectButton');
 
         if (walletConnectButton) {
@@ -29,19 +29,28 @@
         }
 
         function connectWallet() {
-            if (typeof ethereum !== 'undefined') {
-                ethereum.request({ method: 'eth_requestAccounts' })
-                    .then((accounts) => {
-                        console.log(accounts);
-                        window.location.href = "metamask";
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
-            } else {
-                console.error("Ethereum object not found. Make sure MetaMask is installed. Download the extension and try again!");
+            if(!window.ethereum){
+                connectWallet.innerText = "Metamask is not installed"
+                return false
             }
+                 walletConnectButton.addEventListener('click', () => {
+                ethereum.requst({method: 'eth_requestAcounts'});
+            })
+            // if (typeof ethereum !== 'undefined') {
+            //     ethereum.request({ method: 'eth_requestAccounts' })
+            //         .then((accounts) => {
+            //             console.log(accounts);
+            //             window.location.href = "metamask";
+            //         })
+            //         .catch((error) => {
+            //             console.error(error);
+            //         });
+            // } else {
+            //     console.error("Ethereum object not found. Make sure MetaMask is installed. Download the extension and try again!");
+            // }
         }
+            window.addEventListener('DOMContentloaded', ()=> {
+            walletConnectButton()
     });
 </script> 
     <div class="main">
