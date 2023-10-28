@@ -5,16 +5,19 @@
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logged In</title> -->
-    <!-- <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script> -->
+   
       <link rel="stylesheet" href="assets/css/style.css"> -->
 
 </head>
 <button id='walletConnectButton' onclick="">Connect Wallet</button>
 <p id='userWallet' class="text-lg text gray-600 my-2"></p>
 <script>
-    window.walletConnectButton = null
+    window.userWalletAdress = null
     const walletConnectButton = document.getElementById('walletConnectButton')
     const userWallet = document.getElementById('userWallet')
+
+  
+
 
     function toggleButton() {
       if (!window.ethereum) {
@@ -24,7 +27,7 @@
         return false
       }
 
-      loginButton.addEventListener('click', loginWithMetaMask)
+      walletConnectButton.addEventListener('click', loginWithMetaMask)
     }
 
     async function loginWithMetaMask() {
@@ -35,25 +38,25 @@
         })
       if (!accounts) { return }
 
-      window.walletConnectButton = accounts[0]
-      walletConnectButton.innerText = window.walletConnectButton
-      loginButton.innerText = 'Sign out of MetaMask'
+      window.userWalletAdress = accounts[0]
+      userWallet.innerText = window.userWalletAdress
+      walletConnectButton.innerText = 'Sign out of MetaMask'
 
-      loginButton.removeEventListener('click', loginWithMetaMask)
+      walletConnectButton.removeEventListener('click', loginWithMetaMask)
       setTimeout(() => {
-        loginButton.addEventListener('click', signOutOfMetaMask)
+        walletConnectButton.addEventListener('click', signOutOfMetaMask)
       }, 200)
     }
 
     function signOutOfMetaMask() {
-      window.walletConnectButton = null
-      walletConnectButton.innerText = ''
-      loginButton.innerText = 'Sign in with MetaMask'
+      window.userWalletAdress = null
+      userWallet.innerText = ''
+      walletConnectButton.innerText = 'Sign in with MetaMask'
 
-      loginButton.removeEventListener('click', signOutOfMetaMask)
+      walletConnectButton.removeEventListener('click', signOutOfMetaMask)
       setTimeout(() => {
-        loginButton.addEventListener('click', loginWithMetaMask)
-      }, 100)
+        walletConnectButton.addEventListener('click', loginWithMetaMask)
+      }, 300)
     }
 
     window.addEventListener('DOMContentLoaded', () => {
